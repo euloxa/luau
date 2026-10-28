@@ -2374,7 +2374,7 @@ function L2Hub:ApplyLock(Frame, isLocked, lockMessage)
 	return LockFunc;
 end;
 
-L2Hub.EnabledBlur = true;
+L2Hub.EnabledBlur = false;
 L2Hub.BlurModuleParent = workspace.CurrentCamera;
 
 L2Hub.GetCalculatePosition = LPH_NO_VIRTUALIZE(function(planePos, planeNormal, rayOrigin, rayDirection)
@@ -2660,7 +2660,7 @@ function L2Hub:CreateOptionWindow(Frame: Frame , Zindex)
 				Transparency = 0.650
 			})
 
-			Shadow:Render(false);
+			shadow:Render(false);
 
 			if L2Hub.Global3DRenderMode then
 				OptionHandler.Parent = L2Hub.GlobalSurfaceGui;
