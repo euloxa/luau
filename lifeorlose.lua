@@ -12813,12 +12813,15 @@ pcall(function() GameName = game:GetService("MarketplaceService"):GetProductInfo
 			table.clear(ConfigLib.Signals);
 
 			local ConfigList = {};
-			for i,v in next , listfiles(Window.ConfigFolder) do
-
-				local name = string.sub(v , #Window.ConfigFolder + 2);
-
-				table.insert(ConfigList , name)
-			end;
+			for i, v in next, listfiles(Window.ConfigFolder) do
+                local name = string.match(v, "[^/\\]+$") or v;
+    
+                name = string.gsub(name, "%.json$", "");
+    
+                if name and name ~= "" then
+                    table.insert(ConfigList, name);
+                end;
+            end;
 
 			for i,ConfigNameStr in next , ConfigList do
 				local ConfigItemFrame = Instance.new("Frame")
