@@ -1,1 +1,5 @@
 # luau
+
+```
+loadstring
+```
